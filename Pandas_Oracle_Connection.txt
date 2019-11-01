@@ -1,0 +1,21 @@
+#Importing libraries
+import os
+import platform
+
+import cx_Oracle
+
+LOCATION = r"C:\Oracle\instantclient_19_3"
+print("ARCH:", platform.architecture())
+print("FILES AT LOCATION:")
+for name in os.listdir(LOCATION):
+    print(name)
+os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"]
+
+#Creating a database connection
+ip = "IP_ADDRESS"
+port = PORT_NP
+SID = SID
+dsn_tns = cx_Oracle.makedsn(ip, port, SID)
+
+connectionStr = "USERNAME/PASSWORD@HOSTNAME:PORT/SID"
+conn = cx_Oracle.connect(USERNAME,PASSWORD,dsn_tns)
